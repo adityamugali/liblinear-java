@@ -1,9 +1,9 @@
-package de.bwaldvogel.liblinear;
+package libsvm.svm.model;
 
 /**
  * @since 1.9
  */
-public interface Feature {
+public interface Feature extends Comparable<Feature>{
 
     int getIndex();
 

@@ -1,16 +1,20 @@
-package de.bwaldvogel.liblinear;
+package libsvm.svm.model;
 
 public class FeatureNode implements Feature {
 
-    public final int index;
+    public int index;
     public double    value;
 
+    public FeatureNode() {
+		super();
+	}
+    
     public FeatureNode( final int index, final double value ) {
         if (index < 0) throw new IllegalArgumentException("index must be >= 0");
         this.index = index;
         this.value = value;
     }
-
+    
     /**
      * @since 1.9
      */
@@ -58,4 +62,9 @@ public class FeatureNode implements Feature {
     public String toString() {
         return "FeatureNode(idx=" + index + ", value=" + value + ")";
     }
+
+	@Override
+	public int compareTo(Feature other) {
+		return getIndex() > other.getIndex() ? 1 : 0;
+	}
 }
